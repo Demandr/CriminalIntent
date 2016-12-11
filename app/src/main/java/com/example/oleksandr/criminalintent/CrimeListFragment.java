@@ -30,6 +30,7 @@ import java.util.List;
 public class CrimeListFragment extends Fragment {
 
     private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
+    //private static final String CHANGE_ID_CRIME =  "change id";
 
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
@@ -116,7 +117,8 @@ public class CrimeListFragment extends Fragment {
             mAdapter = new CrimeAdapter(crimes);
             mCrimeRecyclerView.setAdapter(mAdapter);
         }else {
-            mAdapter.notifyItemChanged(mChangeId);
+            //mAdapter.notifyItemChanged(mChangeId);
+            mAdapter.notifyDataSetChanged();
         }
         updateSubtitle();
     }
