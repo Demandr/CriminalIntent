@@ -30,14 +30,11 @@ import java.util.List;
 public class CrimeListFragment extends Fragment {
 
     private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
-    //private static final String CHANGE_ID_CRIME =  "change id";
 
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
     private boolean mSubtitleVidible;
     private int mChangeId = 0;
-    //private static final int CHANGE_ID_CRIME = -1;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -148,7 +145,7 @@ public class CrimeListFragment extends Fragment {
         public void bindCrime(Crime crime){
             mCrime = crime;
             mTitleTextView.setText(mCrime.getTitle());
-            mDataTextView.setText(DateFormat.format("dd-MMM-yyyy kk:mm:ss", mCrime.getDate()));
+            mDataTextView.setText(DateFormat.format("dd.MM.yyyy", mCrime.getDate()));
             mSolvedCheckBox.setChecked(mCrime.isSolved());
         }
 
