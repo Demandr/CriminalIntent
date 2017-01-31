@@ -24,11 +24,7 @@ public class CrimePagerActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
     private List<Crime> mCrimes;
-    private static int mChangeCrime;
 
-    public static int getChangeCrime() {
-        return mChangeCrime;
-    }
 
     public static Intent newIntent(Context packageContext, UUID crimeId){
         Intent intent = new Intent(packageContext, CrimePagerActivity.class);
@@ -51,10 +47,6 @@ public class CrimePagerActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 Crime crime = mCrimes.get(position);
-                // delete
-                //mChangeCrime = mViewPager.getCurrentItem();
-                //mChangeCrime = CrimeLab.get(CrimePagerActivity.this).getCrimes().indexOf(crime);
-                //
                 return CrimeFragment.newInstance(crime.getId());
             }
 
@@ -67,7 +59,6 @@ public class CrimePagerActivity extends AppCompatActivity {
         for (int i = 0; i < mCrimes.size(); i++){
             if (mCrimes.get(i).getId().equals(crimeId)){
                 mViewPager.setCurrentItem(i);
-                //mChangeCrime = i;
                 break;
             }
         }
