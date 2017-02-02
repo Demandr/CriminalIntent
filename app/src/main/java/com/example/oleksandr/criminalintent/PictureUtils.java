@@ -28,11 +28,9 @@ public class PictureUtils{
     }
     public static Bitmap getScaledBitmap(String path, int destWidth, int destHeight){
         //читання розмірв зображення
-        try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
-            BitmapFactory.decodeStream(new FileInputStream(path),null,options);
-            //BitmapFactory.decodeFile(path, options);
+            BitmapFactory.decodeFile(path, options);
 
             float srcWidth = options.outWidth;
             float srcHeight = options.outHeight;
@@ -51,11 +49,6 @@ public class PictureUtils{
             options = new BitmapFactory.Options();
             options.inSampleSize = inSampleSize;
 
-            return BitmapFactory.decodeStream(new FileInputStream(path), null, options);
-            //BitmapFactory.decodeFile(path, options);
-        }catch (FileNotFoundException e){
-            return null;
-        }
-
+            return BitmapFactory.decodeFile(path, options);
     }
 }
